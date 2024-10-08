@@ -1,0 +1,43 @@
+<?php
+$servername = "localhost"; // Server name
+$username = "root"; // Database username (default for XAMPP)
+$password = ""; // Database password (default is empty for XAMPP)
+$dbname = "experiences"; // Database name
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Prepare and bind
+$stmt = $conn->prepare("INSERT INTO experience (experience1, experience2) VALUES (?, ?)");
+if ($stmt === false) {
+    die("Prepare failed: " . $conn->error); // Check for prepare error
+}
+
+// Set parameters
+$experience1 = isset($_POST['experience1']) ? trim($_POST['experience1']) : '';
+$experience2 = isset($_POST['experience2']) ? trim($_POST['experience2']) : '';
+
+// Validate input
+if (empty($experience1) || empty($experience2)) {
+    die("All fields are required.");
+}
+
+// Bind parameters
+$stmt->bind_param("ss", $experience1, $experience2);
+
+// Execute
+if ($stmt->execute()) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $stmt->error;
+}
+
+// Close connections
+$stmt->close();
+$conn->close();
+?>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="deco.css" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
+
+<body style="color: purple;">
+   <div class="top">
+      <div class="header">
+         <nav>
+            <ul>
+                <li><a href="#Header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#personal-information">Personal Information</a></li>
+                <li><a href="#contacts">contacts</a></li>
+            </ul>
+         </nav>
+      </div>
+
+      <h1>Hello, I'm BRIDGET</h1>
+      <p>A professional programmer who excels in web development, passionate about creating solutions that push boundaries and inspire progress.</p>
+      <br>
+      <img src="IMG-20230619-WA0009.jpg" height="300" alt="Bridget's image"><br>
+      <br>
+      <hr>
+      <!---------ABOUT-------->
+      <div id="about">
+         <div class="container">
+            <div class="row">
+               <div class="about-column2">
+                  <h1>About Me</h1><br>
+                  <p>I am an individual who believes in success and progressing to be the best version of myself. I am dedicated, a good listener, and confident. I strive for excellence and professionalism.</p>
+                  <div class="tab-titles">
+                     <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                     <p class="tab-links" onclick="opentab('education')">Education</p>
+                     <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                  </div>
+
+                  <!------skills----->
+
+                  <div class="tab-contents active-tab" id="skills">
+                     <form id="skills-form">
+                        <input type="text" id="skill" placeholder="Enter new skill" required><br>
+                        <button type="submit" class="btn btn2">Add Skill</button>
+                     </form>
+
+                     <!-- Where the skill boxes will appear -->
+                     <div id="skills-list" class="skills-list"></div>
+                  </div>
+
+                  <!--------EDUCATION---->
+                  <div class="tab-contents" id="education">
+                     <ul>
+                        <li><span>07/03/2009</span><br>Twin College Private School</li>
+                        <li><span>20/09/2019</span><br>Comprehensive Hazyview</li>
+                        <li><span>2021</span><br>Web Design Training at ET Institute</li>
+                     </ul>
+                  </div>
+
+                  <!---EXPERIENCE---->
+                  <div class="tab-contents" id="experience">
+                     <form id="experience-form">
+                        <input type="text" id="experience1" value="Programming [2021-2022][C++ and Java programming]" required><br>
+                        <input type="text" id="experience2" value="Web Design [2023-CURRENT][Working on a social media platform for a CV]" required><br>
+                        <button type="submit" class="btn btn2">Add</button>
+                     </form>
+                  </div>
+
+               </div>
+            </div>
+         </div>
+      </div>
+      <hr>
+      <br>
+
+      <!---------Projects---->
+      <div id="projects">
+         <div class="container">
+            <h1>My Projects</h1>
+            <br>
+            <div class="projects-list">
+               <div>
+                  <h2>Web Design</h2>
+                  <p>Created a CV website that can be updated and downloaded.</p>
+                  <a href="#">Learn more</a>
+               </div>
+               <br>
+               <div>
+                  <h2>Programming</h2>
+                  <p>Created a program that can organize library books on an online webpage by author name and year of publication.</p>
+                  <a href="#">Learn more</a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <br>
+      <hr>
+      <br>
+
+      <!--------Personal Information------>
+      <div id="personal-information">
+         <div class="myself">
+            <h1>Personal Information</h1>
+            <br>
+            <form id="personal-info-form">
+               <label for="name">Name:</label><br>
+               <input type="text" id="name" placeholder="Name" value="BRIDGET" required><br>
+
+               <label for="surname">Surname:</label><br>
+               <input type="text" id="surname" placeholder="Surname" value="MKHABELA" required><br>
+               <label for="email">Email:</label><br>
+               <input type="email" id="email" value="mbalimkhabela07@gmail.com" required><br>
+           
+               <label for="nationality">Nationality:</label><br>
+               <input type="text" id="nationality" value="SOUTH AFRICAN" required><br>
+           
+               <label for="gender">Gender:</label><br>
+               <input type="text" id="gender" value="female" required><br>
+           
+               <label for="date_of_birth">Date of Birth:</label><br> 
+               <input type="text" id="date_of_birth" placeholder="YYYY/MM/DD" value="2006/11/17" required><br>
+
+               <button type="button" class="btn btn2" id="update-personal-info">Update</button>
+            </form>
+         </div>
+      </div>
+      <br>
+      <hr>
+      <br>
+
+      <!-----Contact details----->
+
+      <h1>Contacts</h1><br> 
+      <div id="contacts">
+         <div class="container">
+            <form id="contact-form">
+               <a href="#"><i class="fas fa-phone-square-alt"></i></a><label for="cellphone">Cellphone:</label><br>
+               <input type="text" id="phone_number" value="0732456789" required><br>
+
+               <label for="Twitter">Twitter:</label><br>
+               <input type="text" id="twitter" value="Mbali07mk" required><br>
+               <button type="button" class="btn btn2" id="update-contacts">Update</button>
+            </form>
+
+            <div class="icons">
+               <a href="https://www.instagram.com/mbali07mk" target="_blank">
+                  <i class="fa-brands fa-instagram"></i>
+               </a>
+               <a href="https://www.facebook.com/your_facebook_profile" target="_blank">
+                  <i class="fa-brands fa-facebook"></i>
+               </a>
+               <a href="https://www.linkedin.com/in/your_linkedin_profile" target="_blank">
+                  <i class="fa-brands fa-linkedin"></i>
+               </a>
+            </div>
+         </div>
+      </div>
+      <br>
+      <hr>
+      <br>
+   </div>
+
+   <script>
+      // Load data from localStorage when the page loads
+      document.addEventListener('DOMContentLoaded', function() {
+          // Restore skills
+          const skillsList = JSON.parse(localStorage.getItem('skills')) || [];
+          skillsList.forEach(skill => addSkill(skill));
+
+          // Restore personal information
+          document.getElementById('name').value = localStorage.getItem('name') || '';
+          document.getElementById('surname').value = localStorage.getItem('surname') || '';
+          document.getElementById('email').value = localStorage.getItem('email') || '';
+          document.getElementById('nationality').value = localStorage.getItem('nationality') || '';
+          document.getElementById('gender').value = localStorage.getItem('gender') || '';
+          document.getElementById('date_of_birth').value = localStorage.getItem('date_of_birth') || '';
+          document.getElementById('phone_number').value = localStorage.getItem('phone_number') || '';
+          document.getElementById('twitter').value = localStorage.getItem('twitter') || '';
+      });
+
+      var tablinks = document.getElementsByClassName("tab-links");
+      var tabcontents = document.getElementsByClassName("tab-contents");
+      function opentab(tabname) {
+         for (var tablink of tablinks) {
+            tablink.classList.remove("active-link");
+         }
+         for (var tabcontent of tabcontents) {
+            tabcontent.classList.remove("active-tab");
+         }
+         event.currentTarget.classList.add("active-link");
+         document.getElementById(tabname).classList.add("active-tab");
+      }
+
+      // Add skill function
+      document.getElementById('skills-form').addEventListener('submit', function(e) {
+          e.preventDefault(); // Prevent form from submitting
+          
+          let skillInput = document.getElementById('skill');
+          let skill = skillInput.value.trim();
+          
+          if (skill) {
+              addSkill(skill);
+              skillInput.value = ''; // Clear input field
+          }
+      });
+
+      // Function to add skill box
+      function addSkill(skill) {
+          let skillList = document.getElementById('skills-list');
+
+          // Create skill box
+          let skillBox = document.createElement('div');
+          skillBox.classList.add('skill-box');
+          
+          // Create skill text
+          let skillText = document.createElement('span');
+          skillText.textContent = skill;
+
+          // Create delete button
+          let deleteBtn = document.createElement('span');
+          deleteBtn.classList.add('delete');
+          deleteBtn.innerHTML = '&times;';
+          deleteBtn.addEventListener('click', function() {
+              skillList.removeChild(skillBox);
+              removeSkillFromLocalStorage(skill);
+          });
+
+          // Append elements
+          skillBox.appendChild(skillText);
+          skillBox.appendChild(deleteBtn);
+          skillList.appendChild(skillBox);
+
+          // Save skill to localStorage
+          saveSkillToLocalStorage(skill);
+      }
+
+      // Function to save skill to localStorage
+      function saveSkillToLocalStorage(skill) {
+          let skillsList = JSON.parse(localStorage.getItem('skills')) || [];
+          skillsList.push(skill);
+          localStorage.setItem('skills', JSON.stringify(skillsList));
+      }
+
+      // Function to remove skill from localStorage
+      function removeSkillFromLocalStorage(skill) {
+          let skillsList = JSON.parse(localStorage.getItem('skills')) || [];
+          skillsList = skillsList.filter(s => s !== skill);
+          localStorage.setItem('skills', JSON.stringify(skillsList));
+      }
+
+      // Automatically save personal information to localStorage
+      const personalInfoFields = ['name', 'surname', 'email', 'nationality', 'gender', 'date_of_birth', 'phone_number', 'twitter'];
+      personalInfoFields.forEach(field => {
+          const input = document.getElementById(field);
+          input.addEventListener('input', function() {
+              localStorage.setItem(field, input.value);
+          });
+      });
+
+      // Update personal information button functionality
+      document.getElementById('update-personal-info').addEventListener('click', function() {
+          personalInfoFields.forEach(field => {
+              const input = document.getElementById(field);
+              localStorage.setItem(field, input.value);
+          });
+          alert('Personal information updated successfully!');
+      });
+
+      // Update contact details button functionality
+      document.getElementById('update-contacts').addEventListener('click', function() {
+          localStorage.setItem('phone_number', document.getElementById('phone_number').value);
+          localStorage.setItem('twitter', document.getElementById('twitter').value);
+          alert('Contact details updated successfully!');
+      });
+   </script>
+
+   <footer>
+      <br>
+      <p>&copy; 2024 My Curriculum Vitae</p>
+      <a href="#privacy">Privacy Policy</a>
+   </footer>
+</body>
+</html>

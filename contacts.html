@@ -1,0 +1,55 @@
+<?php
+// Database connection details
+$servername = "localhost"; 
+$username = "root"; 
+$password = ""; 
+$dbname = "contacts"; 
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Prepare the SQL statement
+$stmt = $conn->prepare("INSERT INTO experience (cellphone, twitt) VALUES (?, ?)");
+if ($stmt === false) {
+    die("Prepare failed: " . $conn->error);
+}
+
+// Retrieve and sanitize inputs
+$phone_number = isset($_POST['phone_number']) ? trim($_POST['phone_number']) : '';
+$twitter = isset($_POST['Twitter']) ? trim($_POST['Twitter']) : ''; // Changed 'Twitter' to 'twitter' for consistency
+
+// Debugging output
+var_dump($_POST); // Check submitted data
+
+// Validate input: Ensure that both fields are filled
+if (empty($phone_number) || empty($twitter)) {
+    die("All fields are required.");
+}
+
+// Optionally: Validate phone number and twitter handle format (optional, improve input validation as needed)
+if (!preg_match('/^[0-9]{10,15}$/', $phone_number)) {
+    die("Invalid phone number format.");
+}
+
+// Bind the parameters to the prepared statement
+$stmt->bind_param("ss", $phone_number, $twitter);
+
+// Execute the statement
+if ($stmt->execute()) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $stmt->error;
+}
+
+// Close the statement and connection
+$stmt->close();
+$conn->close();
+?>
+
+
+

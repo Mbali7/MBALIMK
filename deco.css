@@ -1,0 +1,309 @@
+*{
+    margin :0;
+    padding :0;
+    font-family :'poppins',sans-serif ;
+    box-sizing: border-box;
+}
+
+body{
+background:rgb(6, 6, 37);
+color:purple ;
+background-image: url(./WhatsApp\ Image\ 2024-10-02\ at\ 00.53.15_192c107d.jpg);
+}
+#header{
+    width: 100%;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+
+}
+html{
+    scroll-behavior:smooth;
+}
+.top{
+    padding: 10px 10%;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+nav ul li a{
+    color:#b60859ce;
+    text-decoration: none;
+    font-size: 18px;
+   
+}
+
+/*----ABOUT----*/
+#about{
+    padding: 100px 0;
+    color:pink;
+}
+/*----Skills----*/
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.skill-box {
+    background: #ff004f;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    border-radius: 25px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.5s, transform 0.5s;
+}
+.skill-box:hover {
+    background: #ff005f;
+    transform: translateY(-5px);
+}
+.skill-box .delete {
+    color: white;
+    margin-left: 15px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.row{
+    display:flex ;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.about-column2{
+    flex-basis: 60%;
+}
+
+.tab-titles{
+    display: flex;
+    margin:20px 0 40px ;
+    
+}
+.tab-links{
+    margin-right: 50px;
+    font-size: 18px;
+    font-weight: 200;
+    cursor:pointer;
+    position: relative;
+}
+.tab-links::after{
+     content:'' ;
+     width: 0;
+     height: 3px;
+     background:#ff004f ;
+     position: absolute;
+     left: 0;
+     bottom: -8px;
+     transition: 0.5s;
+}
+.tab-links.active-link::after{
+    width: 50%;
+}
+.tab-contents ul li{
+    list-style:none;
+    margin: 10px 0;
+}
+.tab-contents ul li span{
+    color: #ff0051d2;
+    font-size: 14px;
+}
+.tab-contents{
+    display:none;
+}
+.tab-contents.active-tab{
+    display: block;
+} 
+/*----projects---*/
+#projects{
+    padding: 30px 0;
+}
+.projects-list{
+    display: grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr)) ;
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+.projects-list div{
+    background: #262626;
+    padding: 20px;
+    font-size: 13px;
+    font-weight: 300;
+    border-radius: 20px;
+    transition: background0.5s ,transform 0.5s;
+
+    
+}
+.projects-list div h2{
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+.projects-list div a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 12px;
+    margin-top: 20px;
+    display: inline-block;
+}
+.projects-list div:hover{
+    background: #ff004f;
+    transform: translateY(-10px);
+}
+/*-------personal information---*/
+.myself h1{
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #ff004f;
+}
+/*-----Contacts---*/
+.icons {
+    margin-top: 30px;
+    
+    }
+.icons a{
+    text-decoration: none;
+    font-size: 30px;
+    margin-right: 15px;
+    color: #ff004f;
+    display: inline-block;
+    transition:transform 0.5s;
+}
+icons a:hover{
+    color:#ff004f;
+    transform:translateY(-5px);
+}
+.btn.btn2{
+    display :inline-block ;
+    background: #ff004f;
+}
+.contact-right form{
+    width: 100%;
+
+}
+form input,form textarea{
+    width: 50%;
+    border: 0;
+    outline: none;
+    background: #383434;
+    padding: 15px;
+    margin: 15px 0;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 6px;
+    
+}
+form{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    border: 1px;
+    border-radius:10px ;
+    box-shadow: 0 0 10px rgba(0, 0,0,0.1);
+    width: 90%;
+    margin: 5px auto;
+}
+form label{
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+.delete{
+    color:red;
+    cursor: pointer;
+}
+/* General Reset */
+* {
+    box-sizing: border-box;
+}
+
+/* Header navigation */
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Make navigation items wrap when the screen gets smaller */
+    list-style: none;
+}
+
+nav ul li {
+    margin: 10px;
+}
+
+/* Projects section */
+.projects-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Wraps the project items on smaller screens */
+}
+
+.projects-list div {
+    flex: 1 1 45%; /* Each project takes 45% of the width on medium screens */
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    background-color:   #262626;
+}
+
+/* Smaller screen (phones, portrait tablets) */
+@media only screen and (max-width: 768px) {
+    .projects-list div {
+        flex: 1 1 100%; /* On small screens, each project takes 100% of the width */
+    }
+
+    .top h1 {
+        font-size: 1.5rem; /* Smaller font size for heading */
+    }
+
+    .top p {
+        font-size: 1rem; /* Smaller font size for paragraph */
+    }
+
+    nav ul {
+        flex-direction: column; /* Make navigation items stack vertically */
+        align-items: center;
+    }
+
+    .icons {
+        display: flex;
+        justify-content: center;
+    }
+
+    .icons a {
+        margin: 5px;
+    }
+}
+
+/* Extra small screen */
+@media only screen and (max-width: 480px) {
+    .top h1 {
+        font-size: 1.2rem; /* Even smaller font size */
+    }
+
+    .projects-list div {
+        flex: 1 1 100%; /* Full width for project items */
+        margin-bottom: 20px;
+    }
+
+    form input, form button {
+        width: 100%; /* Full width for form elements */
+    }
+
+    .icons a {
+        font-size: 1.5rem; /* Adjust icon sizes for small screens */
+    }
+}
+
+
+
+
+

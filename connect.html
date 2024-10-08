@@ -1,0 +1,53 @@
+<?php
+$servername = "localhost"; // Server name
+$username = "root"; // Database username (default for XAMPP)
+$password = ""; // Database password (default is empty for XAMPP)
+$dbname = "personal information"; // Database name
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Prepare and bind
+$stmt = $conn->prepare("INSERT INTO personal_information (name, surname, email, nationality, gender, date_of_birth) VALUES (?, ?, ?, ?, ?, ?)");
+if ($stmt === false) {
+    die("Prepare failed: " . $conn->error); // Check for prepare error
+}
+
+// Set parameters
+$name = isset($_POST['name']) ? trim($_POST['name']) : '';
+$surname = isset($_POST['surname']) ? trim($_POST['surname']) : '';
+$email = isset($_POST['email']) ? trim($_POST['email']) : '';
+$nationality = isset($_POST['nationality']) ? trim($_POST['nationality']) : '';
+$gender = isset($_POST['gender']) ? trim($_POST['gender']) : '';
+$dateOfBirth = isset($_POST['date_of_birth']) ? trim($_POST['date_of_birth']) : '';
+
+// Validate input
+if (empty($name) || empty($surname) || empty($email) || empty($nationality) || empty($gender) || empty($dateOfBirth)) {
+    die("All fields are required.");
+}
+
+// Validate email format
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    die("Invalid email format.");
+}
+
+// Bind parameters
+$stmt->bind_param("ssssss", $name, $surname, $email, $nationality, $gender, $dateOfBirth);
+
+// Execute
+if ($stmt->execute()) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $stmt->error;
+}
+
+// Close connections
+$stmt->close();
+$conn->close();
+?>
+

@@ -1,0 +1,20 @@
+button {
+    color:rgb(44, 2, 41) ;
+    font-size :2rem;
+    padding:10px 30px;
+    background : rgb(228, 130, 228);
+    border:none;
+    border-radius:10px;
+    cursor :pointer;
+    box-shadow :0 0 5px  rgb(228, 130, 228);
+    transition :0.5s ;
+}
+button:hover {
+    box-shadow :0 0 5px   rgb(228, 130, 228),
+    0 0 25px  rgb(228, 130, 228) , 0 0 50px   rgb(228, 130, 228),
+    0 0 100px  rgb(228, 130, 228);
+}
+h1{
+animation: fadeIn 3s;
+
+}

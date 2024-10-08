@@ -1,0 +1,80 @@
+<?php
+// Database connection details
+$servername = "localhost"; // Server name (usually localhost for development)
+$username = "root"; // Database username (default for XAMPP)
+$password = ""; // Database password (default is empty for XAMPP)
+$dbname = "skills2"; // Database name where the skills are stored
+
+// Create connection to the MySQL database
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check the connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error); // Stop execution if the connection fails
+}
+
+// Prepare the SQL query for inserting the skill and new skill into the 'skills' table
+$stmt = $conn->prepare("INSERT INTO skills (skill, new_skill) VALUES (?, ?)");
+if ($stmt === false) {
+    die("Prepare failed: " . $conn->error); // Stop execution if the SQL query preparation fails
+}
+
+// Validate and sanitize input from POST request
+$skill = isset($_POST['skill']) ? trim($_POST['skill']) : ''; // Get the 'skill' value and remove spaces
+$new_skill = isset($_POST['new_skill']) ? trim($_POST['new_skill']) : ''; // Get 'new_skill' value and remove spaces
+
+// Ensure that both fields are filled in
+if (empty($skill) || empty($new_skill)) {
+    die("Skill and new skill must not be empty."); // Stop execution if either field is empty
+}
+
+// Bind the sanitized user input to the prepared SQL statement
+$stmt->bind_param("ss", $skill, $new_skill); // 'ss' indicates two string parameters
+
+// Execute the prepared statement to insert the new skill into the database
+$stmt->execute();
+
+// Check if the insert was successful
+if ($stmt->affected_rows > 0) {
+    echo "New record created successfully"; // Success message
+} else {
+    echo "Error: " . $stmt->error; // Error message in case something went wrong
+}
+
+// Save the skill to a text file as well for redundancy or backup
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['skill'])) {
+    $skillToFile = trim($_POST['skill']); // Get the skill value and trim spaces
+    
+    if (!empty($skillToFile)) {
+        // Open the skills.txt file in append mode
+        $file = fopen('skills.txt', 'a');
+        // Write the skill to the file followed by a newline
+        fwrite($file, $skillToFile . "\n");
+        // Close the file to save the changes
+        fclose($file);
+    }
+}
+
+// Handle skill deletion from the text file
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['skill'])) {
+    $skillToDelete = trim($_POST['skill']); // Get the skill to delete and trim spaces
+
+    if (!empty($skillToDelete)) {
+        // Read the file contents into an array, each line becomes an element of the array
+        $skills = file('skills.txt', FILE_IGNORE_NEW_LINES);
+
+        // Remove the skill from the array
+        $skills = array_filter($skills, function($skill) use ($skillToDelete) {
+            return trim($skill) !== $skillToDelete; // Keep all skills except the one to be deleted
+        });
+
+        // Write the updated skills back to the file
+        file_put_contents('skills.txt', implode("\n", $skills) . "\n"); // Save remaining skills back to the file
+    }
+}
+
+// Close the prepared statement and the database connection
+$stmt->close();
+$conn->close();
+?>
+
